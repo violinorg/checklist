@@ -25,6 +25,7 @@ pipeline {
             environment {
                 SONAR_LOGIN = credentials('SONAR_TOKEN')
             }
+            parallel {
                 stage('Integration Tests') {
                     steps {
                         gradlew('integrationTest')
@@ -35,6 +36,12 @@ pipeline {
                         }
                     }
                 }
+                stage('Code Analysis') {
+                    steps {
+                        gradlew('sonarqube')
+                    }
+                }
+            }
         }
         stage('Assemble') {
             steps {
