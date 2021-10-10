@@ -30,11 +30,3 @@ dependencies {
     providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-
-sonarqube {
-  properties {
-    property "sonar.projectKey", "violinorg_checklist"
-    property "sonar.organization", "violinorg"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
